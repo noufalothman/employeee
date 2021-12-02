@@ -1,0 +1,214 @@
+<!--<div class="modal fade" id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addEmployeeModalLabel">Add EmployeeModel</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>-->
+
+<!--<button class="btn btn-primary" (click) = "flag = true" ></button>
+
+<div *ngIf="flag" >
+
+      <div class="modal-body">
+        <form #addForm="ngForm" (ngSubmit)="onAddEmloyee(addForm)">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" ngModel name="name" class="form-control" id="name" placeholder="Name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" ngModel name="email" class="form-control" id="email" placeholder="Email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Job title</label>
+            <input type="text" ngModel name="jobTitle" class="form-control" id="jobTile" placeholder="Job title" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="text" ngModel name="phone" class="form-control" id="phone" placeholder="Phone" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Image URL</label>
+            <input type="text" ngModel name="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL" required>
+          </div>
+          <div class="form-group">
+            <input type="radio" id="Active"  ngModel name="Active"
+                   value="true" class="form-control">
+            <label for="Active">Active</label>
+            <input type="radio" id="NotActive"    ngModel name="Active"
+                   value="false" class="form-control">
+            <label for="NotActive">Not Active</label>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="add-employee-form" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+            <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+          </div>
+
+        </form>
+      </div>
+        </div>-->
+<!-- Button trigger modal -->
+
+<button type="button" style="display:block;"
+        class="btn btn-outline-dark"
+        (click) = "flag = true"  data-toggle="modal"
+        data-target="#AddModal">
+  Add EmployeeModel
+</button>
+<hr>
+<!-- Modal -->
+<div *ngIf="flag"  class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" >
+        <form [formGroup]="formgroup" (ngSubmit)="onAddEmloyee()">
+        <div class="form-group" >
+          <label for="name">Name</label>
+          <input type="text" formControlName="name" class="form-control" id="name" placeholder="Name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" formControlName="email" class="form-control" id="email" placeholder="Email" required>
+        </div>
+<!--        <div class="form-group">
+          <label for="jobTile">Job title</label>
+          <input type="text" ngModel name="jobTitle" class="form-control" id="jobTile" placeholder="Job title" required>
+        </div>-->
+
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="text" formControlName="phone" class="form-control" id="phone" placeholder="Phone" required>
+        </div>
+        <div class="form-group">
+          <label for="imageUrl">Image URL</label>
+          <input type="text" formControlName="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL" required>
+        </div>
+
+    <!--    <div class="form-group">
+          <input type="radio" id="Active"  ngModel name="Active"
+                 value="true" class="form-control">
+          <label for="Active">Active</label>
+          <input type="radio" id="NotActive" ngModel name="Active"
+                 value="false" class="form-control">
+          <label for="NotActive">Not Active</label>
+        </div>-->
+          <hr>
+          <div class="form-group form-check">
+            <input class="form-check-input" type="radio" id="Active" formControlName="Active"
+                   value="true" >
+            <label class="form-check-label" for="Active">
+              Active
+            </label>
+          </div>
+          <div class="form-group form-check">
+            <input class="form-check-input" type="radio"  id="NotActive" formControlName="Active"
+                   value="false">
+            <label class="form-check-label" for="NotActive">
+              NotActive
+            </label>
+          </div>
+          <hr>
+<!--(change)="selectChangeHandler($event)" -->
+          <label for="Role">
+            Role
+          </label>
+
+          <!--(change)="selectChangeHandler($event)"-->
+          <!--ngModel="role.id" send the value -->
+          <!--ngModel value="role.id" send value but empty-->
+
+          <select  class="form-control custom-select" formControlName="role">
+            <option [ngValue]="null" disabled>Select Role</option>
+            <option class="dropdown-item" *ngFor="let role of rolelist" id="role"  [value]="role" >
+              {{role.name}}
+            </option>
+            <!--{{selectedRole}}-->
+          </select>
+
+
+
+       <!--   <app-rolelist> </app-rolelist>-->
+<!--          <label for="EmployeeRole"  class = "form-group">EmployeeRole </label>
+
+          <select name="EmployeeRole" id="EmployeeRole">
+            <option value="Admin">Admin</option>
+            <option value="Admin2">Admin2</option>
+            <option value="Admin3">Admin3</option>
+            <option value="Admin4">Admin4</option>
+          </select>-->
+
+      <div class="modal-footer">
+        <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" [disabled]="formgroup.invalid" type="submit" >Save changes </button>
+      </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!--update oragin code-->
+<!--
+<div class="modal fade" id="updateEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="employeeEditModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateEmployeeModalLabel">Edit EmployeeModel {{editEmployee?.name}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #editForm="ngForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" ngModel="{{editEmployee?.name}}" name="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Name">
+          </div>
+          <input type="hidden" ngModel="{{editEmployee?.id}}" name="id" class="form-control" id="id" placeholder="Email">
+          <input type="hidden" ngModel="{{editEmployee?.employeeCode}}" name="userCode" class="form-control" id="userCode" placeholder="Email">
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" ngModel="{{editEmployee?.email}}" name="email" class="form-control" id="email" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label for="phone">Job title</label>
+            <input type="text" ngModel="{{editEmployee?.jobTitle}}" name="jobTitle" class="form-control" id="jobTitle" placeholder="Job title">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="text" ngModel="{{editEmployee?.phone}}" name="phone" class="form-control" id="phone" name="phone" placeholder="Phone">
+          </div>
+          <div class="form-group">
+            <label for="phone">Image URL</label>
+            <input type="text" ngModel="{{editEmployee?.imageUrl}}" name="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL">
+          </div>
+          <div >
+            <input type="radio" id="Active"  ngModel name="Active"
+                   value="true">
+            <label for="Active">Active</label>
+            <input type="radio" id="NotActive"    ngModel name="Active"
+                   value="false" >
+            <label for="NotActive">Not Active</label>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+            <button (click)="onUpdateEmloyee(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>-->
